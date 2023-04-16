@@ -11,8 +11,11 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
 - create an optimization algorithm that effectively uses available solar power, building energy consumption, and a battery system to buy, sell, and consume energy in the way that saves the most money and puts the least demand on the energy grid
 
 **WHAT CAUGHT MY ATTENTION:**
-- among all project-winners most of them were using Linear Programming algorithms ---> the solution depended on forecast information which was quite bad
-- from this an idea of using Reinforcement Learning was born ---> agent can use forecast information and not suffer from it's accuracy
+- among all project-winners most of them were using Linear Programming algorithms ---> **this entails the following flaws**:
+  - dependence of the solution on forecast (which contains errors)
+  - the need to re-solve the problem - once initial parameters changed
+  - trouble scheduling an hour or more ahead (again due to the forecast)
+- an idea of using Reinforcement Learning was born ---> agent can use forecast information and not suffer from it's accuracy
 
 **RESULTS:**
 - up to 12% of savings were achieved by using RL algorithms (DQN, DDPG, A3C, PG, PPO)
@@ -28,18 +31,34 @@ Available information with data:
   - 15 minutes time step
   - forecast data on PV and consumption
   - previous actual PV and consumption
+ 
+Conclusions on data:
+-
+-
+___
 
-## Accuracy of the forecast
+<div align="center">
+<img align="center" src=figs/simulation.png width="80%"/>
+</div>
 
-## Price Scheme
+___
 
-## Consumption & Photovoltaic production
-- battery information
-- sites with info
-- Consumption and PV  (image)
-- Energy balance      (image)
-- Prices example      (image)
-- Predictions image   (image)
+<div align="center">
+<img align="center" src=figs/energy_balance.png width="100%"/>
+</div>
 
+___
+
+<div align="center">
+<img align="center" src=figs/forecast_error.png width="100%"/>
+</div>
+
+___
 
 # Training results
+
+Participants were evaluated on several separate periods of 10 days for each of the 11 sites. On each period, a score was calculated with the following metric: 
+```
+score = (money_spent - money_spent_without_battery) / abs(money_spent_without_battery)
+```
+The final score was the average of the scores obtained on all periods and all sites.
