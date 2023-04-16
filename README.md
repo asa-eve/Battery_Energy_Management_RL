@@ -10,9 +10,23 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
 **OBJECTIVE:**
 - create an optimization algorithm that effectively uses available solar power, building energy consumption, and a battery system to buy, sell, and consume energy in the way that saves the most money and puts the least demand on the energy grid
 
+**WHAT CAUGHT MY ATTENTION:**
+- among all project-winners most of them were using Linear Programming algorithms ---> the solution depended on forecast information which was quite bad
+- from this an idea of using Reinforcement Learning was born ---> agent can use forecast information and not suffer from it's accuracy
+
 **RESULTS:**
 - up to 12% of savings were achieved by using RL algorithms (DQN, DDPG, A3C, PG, PPO)
 - up to 18% of savings were achieved by using MILP (Gurobi, CBC, GLOP)
 - participation in WCGO2021 conference - ["Optimizing Energy Demand-side Strategies for Energy Storage System Control using Linear Programming"](http://caopt.com/WCGO2021/WCGO_2021_Conference_Program.pdf)
 
-___
+
+# Data 
+- battery information
+- sites with info
+- Consumption and PV  (image)
+- Energy balance      (image)
+- Prices example      (image)
+- Predictions image   (image)
+
+
+# Results on training
