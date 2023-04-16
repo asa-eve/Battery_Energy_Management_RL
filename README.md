@@ -21,6 +21,13 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
 
 
 # Visualization of Data
+Available information with data:
+- storage (battery) characteristics ()
+- data on houses (train & test)
+  - 12 houses, N periods (15 days of length)
+  - 15 minutes time step
+  - forecast data on PV and consumption
+  - previous actual PV and consumption
 
 ## Accuracy of the forecast
 
