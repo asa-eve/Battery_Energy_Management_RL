@@ -25,16 +25,17 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
 
 # Visualization of Data
 Available information with data:
-- storage (battery) characteristics ()
+- storage (battery) characteristics 
 - data on houses (train & test)
-  - 12 houses, N periods (15 days of length)
-  - 15 minutes time step
+  - 12 houses, N periods (15 days length)
+  - 15 minutes timestep
   - forecast data on PV and consumption
-  - previous actual PV and consumption
+  - previous information on actual PV and consumption
  
 Conclusions on data:
--
--
+- "energy balance" - in order to meet demand one needs to buy energy 
+- "price buy/sell" - for some 'site_id' selling energy would be useless (price_sell = 0)
+- "forecast error" - 'load' forecast can harm LP algorithms 
 ___
 
 <div align="center">
@@ -57,7 +58,7 @@ ___
 
 # Training results
 
-Participants were evaluated on several separate periods of 10 days for each of the 11 sites. On each period, a score was calculated with the following metric: 
+On each period, a score was calculated with the following metric: 
 ```
 score = (money_spent - money_spent_without_battery) / abs(money_spent_without_battery)
 ```
