@@ -20,7 +20,13 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
 - participation in WCGO2021 conference - ["Optimizing Energy Demand-side Strategies for Energy Storage System Control using Linear Programming"](http://caopt.com/WCGO2021/WCGO_2021_Conference_Program.pdf)
 
 
-# Data 
+# Visualization of Data
+
+## Accuracy of the forecast
+
+## Price Scheme
+
+## Consumption & Photovoltaic production
 - battery information
 - sites with info
 - Consumption and PV  (image)
@@ -29,4 +35,4 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
 - Predictions image   (image)
 
 
-# Results on training
+# Training results
