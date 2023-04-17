@@ -1,4 +1,4 @@
-# Battery_Energy_Management_RL
+# 🔋🪫 Battery_Energy_Management_RL
 
 <div align="center">
 <img align="center" src=figs/se-challenge-3-banner.jpg width="100%"/>
@@ -30,7 +30,7 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
 - up to 18% of savings were achieved by using MILP (Gurobi, CBC, GLOP)
 - participation in WCGO2021 conference - ["Optimizing Energy Demand-side Strategies for Energy Storage System Control using Linear Programming"](http://caopt.com/WCGO2021/WCGO_2021_Conference_Program.pdf)
 
-# Visualization of Data
+# 📊 Visualization of Data
 
 <div align="center">
 <img align="right" src=figs/house.png width="45%"/>
@@ -63,21 +63,21 @@ $$WAPE \left( y,\widehat{y} \right) = \left( \frac{\sum |y_{i} - \widehat{y}_{i}
 
 This leads to the accumulation of errors when using standard Linear Programming methods.
 
-# Training results
+# 🎲 Training results
 
 The score is calculated for each period - final score is averaged obtain from all periods and sites.
 
 $$score = \frac{money\underline{}spent - money\underline{}spent\underline{}without\underline{}battery}{|money\underline{}spent\underline{}without\underline{}battery|}$$
 
-### State space:
+### State space
 - time component (day of the week - quarter of the week)
 - control component (current battery energy level)
 - uncontrollable component (information on: 'load', 'pv', 'buy price', 'sell price')
 
-### Action Space:
+### Action Space
 Action is continious between [-1;1] - it is corrected accordingly to the maximum battery power with considerations on efficiency (on both charge and discharge).
 
-### Reward function:
+## 🍔 Reward function
 A simple reward of 'score' can be chosen if computational powers and time are not the issue.
 
 In this particular case a different approach was used in order **to consider battery capacity condition**.
@@ -92,7 +92,7 @@ Here the first component is about **breaking battery capacity condition** - the 
 
 Second component is basically modified 'score' reward, where H(.) is **Heaviside function**. It is proposed in order to make agent understand that having negative reward (even a small one) is not improvment - making him chase only 'positive' rewards.
 
-### Results:
+## 🏆 Results
 RL models were trained using cloud service Microsoft Azure 'Standard DS3 v2' with next characteristics:
 - OS: Linux (distribution kit - Ubuntu)
 - CPU: Intel Xeon E5-2673 v3 2.4 GHz (Haswell)
