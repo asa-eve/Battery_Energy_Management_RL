@@ -8,6 +8,13 @@ ___
 
 Project is a result of participation in ["Power Laws: Optimizing Demand-side Strategies" competition](https://www.drivendata.org/competitions/53/optimize-photovoltaic-battery/) hosted by Schneider Electric.
 
+|        Tool             |       |
+|------------------------|-------------|
+| Programming Languages  |    Python   | 
+|          Cloud         |    Azure    |
+|       Libraries        |   Pandas -- Jupyter |
+|       RL libraries     |   [Ray RLlib](https://github.com/ray-project/ray) -- [GymAI](https://github.com/openai/gym) |
+
 ### **OBJECTIVE**:
 - create an optimization algorithm that effectively uses available solar power, building energy consumption, and a battery system to buy, sell, and consume energy in the way that saves the most money and puts the least demand on the energy grid
 
@@ -86,6 +93,7 @@ Here the first component is about **breaking battery capacity condition** - the 
 Second component is basically modified 'score' reward, where H(.) is **Heaviside function**. It is proposed in order to make agent understand that having negative reward (even a small one) is not improvment - making him chase only 'positive' rewards.
 
 ### Results:
+<div align="center">
 
 |  algorithm  |    train score     |   test score   |   savings   |
 |-------------|--------------------|----------------|-------------|
@@ -93,3 +101,6 @@ Second component is basically modified 'score' reward, where H(.) is **Heaviside
 |     A3C     |        -0.093      |     -0.108     |   10.8 %    |
 |     PG      |        -0.037      |     -0.041     |    4.1 %    |
 |     MILP    |        -0.163      |     -0.184     |   18.4 %    |
+
+<img align="center" src=figs/training.png width="100%"/>
+</div>
