@@ -58,8 +58,38 @@ This leads to the accumulation of errors when using standard Linear Programming 
 
 # Training results
 
-On each period, a score was calculated with the following metric: 
-```
-score = (money_spent - money_spent_without_battery) / abs(money_spent_without_battery)
-```
-The final score was the average of the scores obtained on all periods and all sites.
+The score is calculated for each period - final score is averaged obtain from all periods and sites.
+
+$$score = \frac{money\underline{}spent - money\underline{}spent\underline{}without\underline{}battery}{|money\underline{}spent\underline{}without\underline{}battery|}$$
+
+### State space:
+- time component (day of the week - quarter of the week)
+- control component (current battery energy level)
+- uncontrollable component (information on: 'load', 'pv', 'buy price', 'sell price')
+
+### Action Space:
+Action is continious between [-1;1] - it is corrected accordingly to the maximum battery power with considerations on efficiency (on both charge and discharge).
+
+### Reward function:
+A simple reward of 'score' can be chosen if computational powers and time are not the issue.
+
+In this particular case a different approach was used in order **to consider battery capacity condition**.
+
+$$ r = r_{t} + r_{e} $$
+
+$$ r_{t} = \frac{t_{i}}{t_i + t_r} $$
+
+$$ r_{e} = (- score) \times H(- score) $$
+
+Here the first component is about **breaking battery capacity condition** - the longer agent satisfies the condition the better.
+
+Second component is basically modified 'score' reward, where H(.) is **Heaviside function**. It is proposed in order to make agent understand that having negative reward (even a small one) is not improvment - making him chase only 'positive' rewards.
+
+### Results:
+
+|  algorithm  |    train score     |   test score   |   savings   |
+|-------------|--------------------|----------------|-------------|
+|     PPO     |        -0.071      |     -0.085     |    8.5 %    |
+|     A3C     |        -0.093      |     -0.108     |   10.8 %    |
+|     PG      |        -0.037      |     -0.041     |    4.1 %    |
+|     MILP    |        -0.163      |     -0.184     |   18.4 %    |
