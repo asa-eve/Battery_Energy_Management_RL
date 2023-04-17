@@ -29,7 +29,7 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
 <img align="right" src=figs/house.png width="45%"/>
 </div>
 
-**Available information:**
+### **Available information:**
 - storage (battery) characteristics 
   - capacity - power - charge/discharge efficiency
 - house data info (2.8 GB)
@@ -38,17 +38,23 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
   - forecast data for energy generation and consumption
   - actual energy generation and consumption for previous timestep
  
-**Conclusions on data:**
+### **Conclusions on data:**
 - in order to meet demand one MUST BUY energy 
 - selling energy CAN BE USELESS (sell price = 0)
 - sell price is ALWAYS CONSTANT
 - big ERROR for on 'load' - HARMFUL for LP algorithms 
 
-<div align="center">
-<img align="center" src=figs/forecast_error.png width="80%"/>
-</div>
+### **Estimation of forecasting accuracy:**
+To estimate it is suggested to use **Weighted absolute percentage error (WAPE)** since insensitive to the presence of outliers:
+  
+$$WAPE \left( y,\widehat{y} \right) = \left( \frac{\sum |y_{i} - \widehat{y}_{i}|}{\sum y_{i}} \right)$$
 
-___
+|         | WAPE (%) |
+|---------|----------|
+|   load  |   8.86   |
+|    pv   |   4.45   |
+
+This leads to the accumulation of errors when using standard Linear Programming methods.
 
 # Training results
 
