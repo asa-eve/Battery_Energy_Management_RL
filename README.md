@@ -112,3 +112,9 @@ RL models were trained using cloud service Microsoft Azure 'Standard DS3 v2' wit
 <div align="center">   
 <img align="center" src=figs/training.png width="100%"/>
 </div>
+
+## 😰 What else was tried
+- discrete action masking
+- usage of forecasting data (without | only 24 hours | everything)
+- episode (day | period | full file)
+- DQN, DDPG, SAC, TD3 algorithms (have vanishing gradient problem)
