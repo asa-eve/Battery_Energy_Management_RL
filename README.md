@@ -10,9 +10,9 @@ Project is a result of participation in ["Power Laws: Optimizing Demand-side Str
 
 |        Tool             |       |
 |------------------------|-------------|
-| Programming Languages  |    Python   | 
-|          Cloud         |    Azure    |
-|       Libraries        |   Pandas -- Jupyter |
+| Programming Languages  |    Python | 
+|          Cloud storage & processing         |   Microsoft Azure    |
+|       Approaches       |   Mixed Integer Linear Programming (MILP) -- Reinforcement Learning (RL) |
 |       RL libraries     |   [Ray RLlib](https://github.com/ray-project/ray) -- [GymAI](https://github.com/openai/gym) |
 
 ### **OBJECTIVE**:
@@ -93,7 +93,12 @@ Here the first component is about **breaking battery capacity condition** - the 
 Second component is basically modified 'score' reward, where H(.) is **Heaviside function**. It is proposed in order to make agent understand that having negative reward (even a small one) is not improvment - making him chase only 'positive' rewards.
 
 ### Results:
-<div align="center">
+RL models were trained using cloud service Microsoft Azure 'Standard DS3 v2' with next characteristics:
+- OS: Linux (distribution kit - Ubuntu)
+- CPU: Intel Xeon E5-2673 v3 2.4 GHz (Haswell)
+- RAM: 14 GiB (SSD)
+
+<div align="center">   
 
 |  algorithm  |    train score     |   test score   |   savings   |
 |-------------|--------------------|----------------|-------------|
@@ -102,5 +107,8 @@ Second component is basically modified 'score' reward, where H(.) is **Heaviside
 |     PG      |        -0.037      |     -0.041     |    4.1 %    |
 |     MILP    |        -0.163      |     -0.184     |   18.4 %    |
 
+</div>
+
+<div align="center">   
 <img align="center" src=figs/training.png width="100%"/>
 </div>
